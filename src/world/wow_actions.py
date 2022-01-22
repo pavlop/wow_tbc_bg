@@ -8,6 +8,7 @@ def run(time_sec):
   pyautogui.keyDown('w')
   time.sleep(half_time)
   pyautogui.keyDown('space')
+  pyautogui.keyUp('space')
   time.sleep(half_time)
   pyautogui.keyUp('w')
 
@@ -32,6 +33,7 @@ def run_and_turn_in_the_middle(time_sec, left_or_right):
   time.sleep(time_sec/2.0)
   turn(left_or_right)
   pyautogui.keyDown('space')
+  pyautogui.keyUp('space')
   time.sleep(time_sec/2.0)
   pyautogui.keyUp('w')
 
