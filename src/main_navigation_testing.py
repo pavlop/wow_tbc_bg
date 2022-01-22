@@ -2,6 +2,7 @@ import logging
 
 from world.wow_actions import *
 
+
 def main():
   print('Running out of cave Begin')
   run_and_turn_in_the_middle(3.0, 'right')

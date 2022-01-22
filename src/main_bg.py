@@ -5,6 +5,7 @@ from utils.screen_utils import MyLogger
 from world.world_state import WorldState
 from world.wow_actions import *
 
+
 def main():
   my_logger = MyLogger()
 
@@ -24,7 +25,6 @@ def main():
         run_out_of_cave()
 
       was_on_bg_recently = True
-
 
     # BG is finished, start new one
     if was_on_bg_recently and not world.is_in_battleground:
@@ -50,11 +50,11 @@ def main():
         time.sleep(33)
         pyautogui.hotkey('f11')
 
-
   # Main Thread: Quit Program
   time.sleep(4 * 60 * 60)
   my_logger.log("Main: Done")
   os._exit(1)
+
 
 def run_out_of_cave():
   print('Running out of cave Begin')
@@ -68,6 +68,7 @@ def run_out_of_cave():
   run_and_strafe_in_the_middle(5, 'left', 3)
   run_and_strafe_in_the_middle(5, 'right', 3)
   run_and_strafe_in_the_middle(3, 'left', 3)
+
 
 if __name__ == "__main__":
   format = "%(asctime)s: %(message)s"
