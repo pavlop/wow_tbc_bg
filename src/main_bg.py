@@ -58,7 +58,6 @@ def main():
 
 def run_out_of_cave():
   print('Running out of cave Begin')
-  turn('right')
   run_and_turn_in_the_middle(3.0, 'right')
   run_and_turn_in_the_middle(3.0, 'right')
   run(10)
