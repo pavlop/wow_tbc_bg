@@ -44,3 +44,8 @@ def run_and_strafe_in_the_middle(time_run_sec, left_or_right, time_strafe_sec):
   run(time_half_sec)
   strafe(time_strafe_sec, left_or_right)
   run(time_half_sec)
+
+
+def stealth():
+  pyautogui.keyDown('`')
+  pyautogui.keyUp('`')
