@@ -17,9 +17,9 @@ class Tesseract:
     return prepareData(text)
 
 def prepareData(text):
-  text = text.split(',')
-  texts = [s.strip() for s in text]
-  if(len(texts) != 2):
+  texts = text.split(',')
+  texts = [s.strip() for s in texts]
+  if(len(texts) < 2):
     return [0, 0]
   num_cords = [int(numeric_string) for numeric_string in texts]
   return num_cords

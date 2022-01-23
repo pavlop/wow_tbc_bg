@@ -7,7 +7,7 @@ import numpy as np
 import tesseract
 from resources.images_map import IMAGE_MAP, ScreenPart
 from utils.screen_utils import area_of_picture, \
-  MyLogger, take_screenshot, RectangularArea
+  MyLogger, take_screenshot, RectangularArea, show_image_with_rectangle
 from world.sceen_area_checker import ScreenAreaChecker
 
 
@@ -33,8 +33,7 @@ class WorldState(object):
   def update_screen(self):
     self.update_screen_with_img(take_screenshot())
     if self.tomtom_checker:
-      tomtom_battleground_found = True if self.tomtom_checker.check(self.screen) \
-        else tesseract.Tesseract().parse_coordinates(self.screen, self.scan_area) != [0, 0]
+      tomtom_battleground_found = True if self.tomtom_checker.check(self.screen) else tesseract.Tesseract().parse_coordinates(self.screen, self.scan_area) == [0, 0]
 
       if tomtom_battleground_found:
         if not self.is_in_battleground:
