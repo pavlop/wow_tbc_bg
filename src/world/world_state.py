@@ -22,7 +22,8 @@ class WorldState(object):
   def init_real_world(self):
     self.update_screen()
     self.set_scan_area(IMAGE_MAP[ScreenPart.TOMTOM_LEFT_FRAME])
-    self.tomtom_checker = ScreenAreaChecker([IMAGE_MAP[ScreenPart.TOMTOM_COORDINATES_EMPTY]], self.scan_area)
+    self.tomtom_checker = ScreenAreaChecker(
+      [IMAGE_MAP[ScreenPart.TOMTOM_COORDINATES_EMPTY, ScreenPart.TOMTOM_COORDINATES_EMPTY_2]], self.scan_area)
 
   def update_screen_with_img(self, fake_screen: np.ndarray):
     self.screen = fake_screen
@@ -42,7 +43,8 @@ class WorldState(object):
 
   def set_scan_area(self, top_corner_img: np.ndarray):
     left_area = area_of_picture(self.screen, top_corner_img)
-    self.scan_area = RectangularArea(left_area.top_x+10, left_area.top_y, left_area.top_x + round(2.7 * left_area.width), left_area.top_y+left_area.height)
+    self.scan_area = RectangularArea(left_area.top_x + 10, left_area.top_y,
+                                     left_area.top_x + round(2.7 * left_area.width), left_area.top_y + left_area.height)
 
   def keep_updating_screen(self, update_sec=0.5):
     while True:

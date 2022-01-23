@@ -20,8 +20,8 @@ class ScreenPart(Enum):
 IMAGE_FILES_MAP = {
   # Menu
   ScreenPart.TOMTOM_LEFT_FRAME: 'resources/menu/tomtom_left_frame.png',
-  ScreenPart.TOMTOM_COORDINATES_EMPTY: 'resources/menu/tomtom_coordinates_empty.png',
-  ScreenPart.TOMTOM_COORDINATES_EMPTY_2: 'resources/menu/tomtom_coordinates_empty_2.png',
+  ScreenPart.TOMTOM_COORDINATES_EMPTY: 'resources/menu/tomtom_coordinates_empty_pavel.png',
+  ScreenPart.TOMTOM_COORDINATES_EMPTY_2: 'resources/menu/tomtom_coordinates_empty_ivan.png',
 
   # Test
   ScreenPart.TEST_FULLSCREEN_SHATRATH_ALTERAK: 'resources/test/fullscreen_shatrath_alterak.png',
