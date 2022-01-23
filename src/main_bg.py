@@ -31,26 +31,7 @@ def main():
       was_on_bg_recently = False
       # wait for town to load
       time.sleep(5)
-
-      # Target
-      pyautogui.hotkey('f8')
-      time.sleep(0.1)
-
-      # Interact
-      pyautogui.hotkey('\\')
-      time.sleep(0.8)
-
-      # Dialog
-      pyautogui.hotkey('f9')
-      time.sleep(0.8)
-
-      # Queue
-      pyautogui.hotkey('f10')
-
-      while not world.is_in_battleground:
-        # Join
-        time.sleep(33)
-        pyautogui.hotkey('f11')
+      signup()
 
   # Main Thread: Quit Program
   time.sleep(4 * 60 * 60)
@@ -77,6 +58,29 @@ def run_out_of_cave():
   stealth()
   print('Running out of cave End')
 
+
+def signup(world):
+  while not world.is_in_battleground:
+    # Target
+    pyautogui.hotkey('f8')
+    time.sleep(0.1)
+
+    # Interact
+    pyautogui.hotkey('\\')
+    time.sleep(0.8)
+
+    # Dialog
+    pyautogui.hotkey('f9')
+    time.sleep(0.8)
+
+    # Queue
+    pyautogui.hotkey('f10')
+
+    attempts = 0
+    while not world.is_in_battleground and attempts < 3:
+      # Join
+      time.sleep(20)
+      pyautogui.hotkey('f11')
 
 def random_actions(world: WorldState):
   print('Random Actions Begin')
