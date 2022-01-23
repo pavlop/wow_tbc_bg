@@ -114,7 +114,7 @@ pip-selfcheck.json
 .idea/jsLibraryMappings.xml
 .idea/misc.xml
 .idea/rs3.iml
- src/world/__pycache__
+ src/world/__pycache__/
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
