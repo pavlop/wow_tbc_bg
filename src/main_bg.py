@@ -75,6 +75,7 @@ def run_out_of_cave():
   run_and_strafe_in_the_middle(3, 'left', 3)
   run_and_strafe_in_the_middle(3, 'right', 3)
   run(20)
+  stealth()
 
 
 def random_actions(world: WorldState):
