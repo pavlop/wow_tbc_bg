@@ -1,0 +1,23 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(revision 34a783eda1565543af2a6190d91cdde1f949e394)
++++ .gitignore	(date 1642896902958)
+@@ -114,7 +114,7 @@
+ .idea/jsLibraryMappings.xml
+ .idea/misc.xml
+ .idea/rs3.iml
+- src/world/__pycache__
++ src/world/__pycache__/
+ 
+ # Sensitive or high-churn files:
+ .idea/dataSources.ids
+@@ -151,4 +151,4 @@
+ com_crashlytics_export_strings.xml
+ crashlytics.properties
+ crashlytics-build.properties
+-fabric.properties
+\ No newline at end of file
++fabric.properties
