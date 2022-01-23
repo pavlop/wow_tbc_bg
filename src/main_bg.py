@@ -64,7 +64,6 @@ def run_out_of_cave():
   print('Running out of cave End')
 
   # Random actions now
-  print('Random actions Begin')
   turn('right')
   turn('right')
   turn('right')
@@ -73,9 +72,7 @@ def run_out_of_cave():
   run_and_strafe_in_the_middle(10, 'right', 3)
   run_and_strafe_in_the_middle(3, 'left', 3)
   run_and_strafe_in_the_middle(3, 'right', 3)
-  stealth()
-  run(120)
-  print('Random actions End')
+  run(20)
 
 if __name__ == "__main__":
   format = "%(asctime)s: %(message)s"
