@@ -31,7 +31,7 @@ def main():
       was_on_bg_recently = False
       # wait for town to load
       time.sleep(5)
-      signup()
+      signup(world)
 
   # Main Thread: Quit Program
   time.sleep(4 * 60 * 60)
