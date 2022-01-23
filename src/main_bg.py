@@ -1,6 +1,7 @@
 import logging
 import os
 
+import tesseract
 from utils.screen_utils import MyLogger
 from world.world_state import WorldState
 from world.wow_actions import *
