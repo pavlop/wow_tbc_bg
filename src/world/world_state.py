@@ -9,6 +9,7 @@ from resources.images_map import IMAGE_MAP, ScreenPart
 from utils.screen_utils import area_of_picture, \
   MyLogger, take_screenshot, RectangularArea, show_image_with_rectangle
 from world.sceen_area_checker import ScreenAreaChecker
+import api.telegram as telegram
 
 
 class WorldState(object):
@@ -17,6 +18,8 @@ class WorldState(object):
     self.scan_area = None
     self.tomtom_checker = None
     self.is_in_battleground = False
+    self.last_state_change = time.time()
+    self.is_alert_sent = False
     self.my_logger = MyLogger()
     self.queue = Queue(maxsize=0)
 
@@ -35,14 +38,24 @@ class WorldState(object):
     if self.tomtom_checker:
       tomtom_battleground_found = True if self.tomtom_checker.check(self.screen) else tesseract.Tesseract().parse_coordinates(self.screen, self.scan_area) == [0, 0]
 
+      self.alert()
+
       if tomtom_battleground_found:
         if not self.is_in_battleground:
           self.my_logger.log("=== Now In Battleground ===")
+          self.last_state_change = time.time()
         self.is_in_battleground = True
       else:
         if self.is_in_battleground:
           self.my_logger.log("=== Now In Town ===")
+          self.last_state_change = time.time()
         self.is_in_battleground = False
+
+  def alert(self):
+    time_delta = time.time() - self.last_state_change
+    if time_delta > 1800 and not self.is_alert_sent:
+      telegram.MyTelegramClient("@JohnTrane").send_message("state didn't change for 1800 seconds")
+      self.is_alert_sent = True
 
   def set_scan_area(self, top_corner_img: np.ndarray):
     left_area = area_of_picture(self.screen, top_corner_img)
