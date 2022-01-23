@@ -1,5 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
+
+src/world/__pycache__/
+src/resources/__pycache__/
+src/utils/__pycache__/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -114,7 +120,6 @@ pip-selfcheck.json
 .idea/jsLibraryMappings.xml
 .idea/misc.xml
 .idea/rs3.iml
- src/world/__pycache__/
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
