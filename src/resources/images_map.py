@@ -11,6 +11,7 @@ class ScreenPart(Enum):
   # UI elements.
   TOMTOM_LEFT_FRAME = 1
   TOMTOM_COORDINATES_EMPTY = 2
+  TOMTOM_COORDINATES_EMPTY_2 = 3
 
   # Test objects 1000
   TEST_FULLSCREEN_SHATRATH_ALTERAK = 1001
@@ -20,6 +21,7 @@ IMAGE_FILES_MAP = {
   # Menu
   ScreenPart.TOMTOM_LEFT_FRAME: 'resources/menu/tomtom_left_frame.png',
   ScreenPart.TOMTOM_COORDINATES_EMPTY: 'resources/menu/tomtom_coordinates_empty.png',
+  ScreenPart.TOMTOM_COORDINATES_EMPTY_2: 'resources/menu/tomtom_coordinates_empty_2.png',
 
   # Test
   ScreenPart.TEST_FULLSCREEN_SHATRATH_ALTERAK: 'resources/test/fullscreen_shatrath_alterak.png',
