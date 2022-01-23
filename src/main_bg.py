@@ -29,6 +29,8 @@ def main():
     # BG is finished, start new one
     if was_on_bg_recently and not world.is_in_battleground:
       was_on_bg_recently = False
+      # wait for town to load
+      time.sleep(5)
 
       # Target
       pyautogui.hotkey('f8')
@@ -77,6 +79,8 @@ def run_out_of_cave():
 
 def random_actions(world: WorldState):
   print('Random Actions Begin')
+  while (world.is_in_battleground):
+    run(5)
   print('Random Actions End')
 
 if __name__ == "__main__":
