@@ -63,7 +63,6 @@ def run_out_of_cave():
   run_and_turn_in_the_middle(3.0, 'right')
   run_and_turn_in_the_middle(3.0, 'right')
   run(10)
-  print('Running out of cave End')
 
   # Random actions now
   turn('right')
@@ -76,13 +75,14 @@ def run_out_of_cave():
   run_and_strafe_in_the_middle(3, 'right', 3)
   run(20)
   stealth()
+  print('Running out of cave End')
 
 
 def random_actions(world: WorldState):
   print('Random Actions Begin')
   while (world.is_in_battleground):
-    time.sleep(30)
-    run(1)
+    run(0.1)
+    time.sleep(60)
   print('Random Actions End')
 
 if __name__ == "__main__":
