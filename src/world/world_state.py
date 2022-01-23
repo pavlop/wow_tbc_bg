@@ -33,7 +33,9 @@ class WorldState(object):
   def update_screen(self):
     self.update_screen_with_img(take_screenshot())
     if self.tomtom_checker:
-      tomtom_battleground_found = self.tomtom_checker.check(self.screen)
+      tomtom_battleground_found = True if self.tomtom_checker.check(self.screen) \
+        else tesseract.Tesseract().parse_coordinates(self.screen, self.scan_area) != [0, 0]
+
       if tomtom_battleground_found:
         if not self.is_in_battleground:
           self.my_logger.log("=== Now In Battleground ===")
@@ -52,7 +54,6 @@ class WorldState(object):
     while True:
       self.my_logger.log_every(100, "Taking screenshot")
       self.update_screen()
-      print(tesseract.Tesseract().parse_coordinates(self.screen, self.scan_area))
       time.sleep(update_sec)
 
   def run_thread(self, delta_sec: float):
