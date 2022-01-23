@@ -11,10 +11,9 @@ class ScreenAreaChecker(object):
       return None
     search_screen = screen[self.area.top_y:self.area.bottom_y, self.area.top_x:self.area.bottom_x]
 
-    area_result = None
     for label in self.labels:
       area_result = area_of_picture(search_screen, label)
       if area_result is not None:
-        continue
+        return area_result
     # show_image_with_rectangle(search_screen, area_result)
-    return area_result
+    return None
