@@ -24,31 +24,15 @@ def main():
       time.sleep(90)
       if not was_on_bg_recently:
         run_out_of_cave()
-
+        random_actions(world)
       was_on_bg_recently = True
 
     # BG is finished, start new one
     if was_on_bg_recently and not world.is_in_battleground:
       was_on_bg_recently = False
-      # Target
-      pyautogui.hotkey('f8')
-      time.sleep(0.1)
-
-      # Interact
-      pyautogui.hotkey('\\')
-      time.sleep(0.8)
-
-      # Dialog
-      pyautogui.hotkey('f9')
-      time.sleep(0.8)
-
-      # Queue
-      pyautogui.hotkey('f10')
-
-      while not world.is_in_battleground:
-        # Join
-        time.sleep(33)
-        pyautogui.hotkey('f11')
+      # wait for town to load
+      time.sleep(5)
+      signup(world)
 
   # Main Thread: Quit Program
   time.sleep(4 * 60 * 60)
@@ -61,10 +45,8 @@ def run_out_of_cave():
   run_and_turn_in_the_middle(3.0, 'right')
   run_and_turn_in_the_middle(3.0, 'right')
   run(10)
-  print('Running out of cave End')
 
   # Random actions now
-  print('Random actions Begin')
   turn('right')
   turn('right')
   turn('right')
@@ -73,9 +55,40 @@ def run_out_of_cave():
   run_and_strafe_in_the_middle(10, 'right', 3)
   run_and_strafe_in_the_middle(3, 'left', 3)
   run_and_strafe_in_the_middle(3, 'right', 3)
+  run(20)
   stealth()
-  run(120)
-  print('Random actions End')
+  print('Running out of cave End')
+
+
+def signup(world):
+  while not world.is_in_battleground:
+    # Target
+    pyautogui.hotkey('f8')
+    time.sleep(0.1)
+
+    # Interact
+    pyautogui.hotkey('\\')
+    time.sleep(0.8)
+
+    # Dialog
+    pyautogui.hotkey('f9')
+    time.sleep(0.8)
+
+    # Queue
+    pyautogui.hotkey('f10')
+
+    attempts = 0
+    while not world.is_in_battleground and attempts < 3:
+      # Join
+      time.sleep(20)
+      pyautogui.hotkey('f11')
+
+def random_actions(world: WorldState):
+  print('Random Actions Begin')
+  while (world.is_in_battleground):
+    run(0.1)
+    time.sleep(60)
+  print('Random Actions End')
 
 if __name__ == "__main__":
   format = "%(asctime)s: %(message)s"
