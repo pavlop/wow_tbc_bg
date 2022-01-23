@@ -1,6 +1,7 @@
 import logging
 import os
 
+import tesseract
 from utils.screen_utils import MyLogger
 from world.world_state import WorldState
 from world.wow_actions import *
@@ -29,7 +30,6 @@ def main():
     # BG is finished, start new one
     if was_on_bg_recently and not world.is_in_battleground:
       was_on_bg_recently = False
-
       # Target
       pyautogui.hotkey('f8')
       time.sleep(0.1)

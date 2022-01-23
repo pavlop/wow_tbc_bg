@@ -23,7 +23,15 @@ class WorldStateTest(unittest.TestCase):
     pyt.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
     world = WorldState()
+    screen = IMAGE_MAP[ScreenPart.TEST_FULLSCREEN_SHATRATH_ALTERAK]
+    world.update_screen_with_img(screen)
+    world.set_scan_area(IMAGE_MAP[ScreenPart.TOMTOM_LEFT_FRAME])
 
+    cropped = crop(screen, world.scan_area)
+    img = Image.fromarray(cropped)
+    text = pyt.image_to_string(img)
+
+    print(tesseract.prepareData(text))
     #
     # tes = tesseract.Tesseract()
     # tes.parse_coordinates()

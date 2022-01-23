@@ -4,6 +4,7 @@ from queue import Queue
 
 import numpy as np
 
+import tesseract
 from resources.images_map import IMAGE_MAP, ScreenPart
 from utils.screen_utils import area_of_picture, \
   MyLogger, take_screenshot, RectangularArea
@@ -51,6 +52,7 @@ class WorldState(object):
     while True:
       self.my_logger.log_every(100, "Taking screenshot")
       self.update_screen()
+      print(tesseract.Tesseract().parse_coordinates(self.screen, self.scan_area))
       time.sleep(update_sec)
 
   def run_thread(self, delta_sec: float):
