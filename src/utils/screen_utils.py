@@ -65,7 +65,7 @@ def resize_area_keep_center(area: RectangularArea, resize_coefficient: float) ->
   return RectangularArea(top_x, top_y, bottom_x, bottom_y)
 
 
-def area_of_picture(screen: np.ndarray, label: np.ndarray, threshold=0.7) -> RectangularArea:
+def area_of_picture(screen: np.ndarray, label: np.ndarray, threshold=0.5) -> RectangularArea:
   if screen is None or label is None:
     return None
   method = cv2.TM_CCOEFF_NORMED
