@@ -23,7 +23,7 @@ def main():
       time.sleep(90)
       if not was_on_bg_recently:
         run_out_of_cave()
-
+        random_actions(world)
       was_on_bg_recently = True
 
     # BG is finished, start new one
@@ -73,6 +73,11 @@ def run_out_of_cave():
   run_and_strafe_in_the_middle(3, 'left', 3)
   run_and_strafe_in_the_middle(3, 'right', 3)
   run(20)
+
+
+def random_actions(world: WorldState):
+  print('Random Actions Begin')
+  print('Random Actions End')
 
 if __name__ == "__main__":
   format = "%(asctime)s: %(message)s"
