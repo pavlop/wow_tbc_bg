@@ -2,10 +2,10 @@ import logging
 import random
 from typing import Text
 
-import PIL
 import cv2
 import numpy as np
 import pyautogui
+
 
 class RectangularArea(object):
   def __init__(self, top_x: int, top_y: int, bottom_x: int, bottom_y: int):
@@ -65,7 +65,7 @@ def resize_area_keep_center(area: RectangularArea, resize_coefficient: float) ->
   return RectangularArea(top_x, top_y, bottom_x, bottom_y)
 
 
-def area_of_picture(screen: np.ndarray, label: np.ndarray, threshold=0.8) -> RectangularArea:
+def area_of_picture(screen: np.ndarray, label: np.ndarray, threshold=0.7) -> RectangularArea:
   if screen is None or label is None:
     return None
   method = cv2.TM_CCOEFF_NORMED

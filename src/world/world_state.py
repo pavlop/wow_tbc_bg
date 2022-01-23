@@ -2,11 +2,11 @@ import threading
 import time
 from queue import Queue
 
+import numpy as np
+
 from resources.images_map import IMAGE_MAP, ScreenPart
 from utils.screen_utils import area_of_picture, \
   MyLogger, take_screenshot, RectangularArea
-import numpy as np
-
 from world.sceen_area_checker import ScreenAreaChecker
 
 
@@ -32,10 +32,13 @@ class WorldState(object):
     if self.tomtom_checker:
       empty_tomtom_found = self.tomtom_checker.check(self.screen)
       if empty_tomtom_found:
-        self.my_logger.log_every(60, "=== In battleground ===")
+        if not self.is_in_battleground:
+          self.my_logger.log("=== Now In Battleground ===")
         self.is_in_battleground = True
       else:
-        self.my_logger.log_every(60, "=== In the city ===")
+        if self.is_in_battleground:
+          self.my_logger.every("=== Now In Town ===")
+        self.is_in_battleground = False
 
   def set_scan_area(self, top_corner_img: np.ndarray):
     left_area = area_of_picture(self.screen, top_corner_img)
