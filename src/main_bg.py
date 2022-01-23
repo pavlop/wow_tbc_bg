@@ -62,6 +62,7 @@ def run_out_of_cave():
 
 def signup(world):
   while not world.is_in_battleground:
+    print("trying to sign up")
     # Target
     pyautogui.hotkey('f8')
     time.sleep(0.1)
@@ -79,6 +80,7 @@ def signup(world):
 
     attempts = 0
     while not world.is_in_battleground and attempts < 3:
+      attempts += 1
       # Join
       time.sleep(20)
       pyautogui.hotkey('f11')
