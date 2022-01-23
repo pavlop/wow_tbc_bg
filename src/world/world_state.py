@@ -32,8 +32,8 @@ class WorldState(object):
   def update_screen(self):
     self.update_screen_with_img(take_screenshot())
     if self.tomtom_checker:
-      empty_tomtom_found = self.tomtom_checker.check(self.screen)
-      if empty_tomtom_found:
+      tomtom_battleground_found = self.tomtom_checker.check(self.screen)
+      if tomtom_battleground_found:
         if not self.is_in_battleground:
           self.my_logger.log("=== Now In Battleground ===")
         self.is_in_battleground = True
