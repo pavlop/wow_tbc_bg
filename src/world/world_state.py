@@ -37,7 +37,7 @@ class WorldState(object):
         self.is_in_battleground = True
       else:
         if self.is_in_battleground:
-          self.my_logger.every("=== Now In Town ===")
+          self.my_logger.log("=== Now In Town ===")
         self.is_in_battleground = False
 
   def set_scan_area(self, top_corner_img: np.ndarray):
