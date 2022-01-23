@@ -81,7 +81,8 @@ def run_out_of_cave():
 def random_actions(world: WorldState):
   print('Random Actions Begin')
   while (world.is_in_battleground):
-    run(5)
+    time.sleep(30)
+    run(1)
   print('Random Actions End')
 
 if __name__ == "__main__":
